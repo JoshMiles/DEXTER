@@ -38,6 +38,7 @@
                     <connections>
                         <segue destination="3hE-id-yPQ" kind="relationship" relationship="viewControllers" id="GME-v8-FGG"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="Pt3-AM-Q0A" kind="relationship" relationship="viewControllers" id="wqO-LW-bpA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -231,6 +232,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBP-qg-nqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2593" y="49"/>
+        </scene>
+        <!--TSR Atlas-->
+        <scene sceneID="ads-GT-YYg">
+            <objects>
+                <viewController id="Pt3-AM-Q0A" customClass="SecondViewController" customModule="DEXTER" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6aD-38-5KF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLr-Vk-Qr4">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="JZ7-Jd-AbP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="TSR Atlas" image="second" id="lwv-r8-ebn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcn-cn-ygp" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="1076.311844077961"/>
         </scene>
     </scenes>
     <resources>

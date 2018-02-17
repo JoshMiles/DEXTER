@@ -22,6 +22,7 @@
 		03F5ECDF20386FAC00DC4255 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */; };
 		03F5ECE020386FAC00DC4255 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDD20386FAC00DC4255 /* Pokemon.swift */; };
 		03F5ECE120386FAC00DC4255 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */; };
+		03F5ECEA2038BC1700DC4255 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECE92038BC1700DC4255 /* ThirdViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		03F5ECDD20386FAC00DC4255 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		03F5ECE92038BC1700DC4255 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				03F5EC962037CC5500DC4255 /* Info.plist */,
 				03F5ECD22037E91D00DC4255 /* SearchFooter.swift */,
 				03F5ECD42037E95500DC4255 /* Theme.swift */,
+				03F5ECE92038BC1700DC4255 /* ThirdViewController.swift */,
 			);
 			path = DEXTER;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				03F5ECE120386FAC00DC4255 /* DetailViewController.swift in Sources */,
+				03F5ECEA2038BC1700DC4255 /* ThirdViewController.swift in Sources */,
 				03F5EC8D2037CC5400DC4255 /* SecondViewController.swift in Sources */,
 				03F5EC892037CC5400DC4255 /* AppDelegate.swift in Sources */,
 				03F5ECD52037E95500DC4255 /* Theme.swift in Sources */,
