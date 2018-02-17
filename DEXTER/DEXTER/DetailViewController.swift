@@ -12,6 +12,11 @@ class DetailViewController: UIViewController {
     }
   }
   
+    func webView(_ webView: WKWebView,
+                 didFinish navigation: WKNavigation!) {
+        title = webView.title
+        
+    }
     override func loadView() {
         webView = WKWebView()
         //webView.navigationDelegate =
@@ -32,6 +37,7 @@ class DetailViewController: UIViewController {
     let url = URL(string: "https://www.theflirtations.uk/pogo/index.php?id=" + pokeNumber)!
     webView.load(URLRequest(url: url))
     webView.allowsBackForwardNavigationGestures = true
+    
   }
   
   override func didReceiveMemoryWarning() {
