@@ -117,8 +117,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pokémon" largeTitleDisplayMode="always" id="34q-tH-F6V" userLabel="Pokemon"/>
                     <connections>
-                        <outlet property="candyImageView" destination="6ix-lC-Mnn" id="ggj-Ps-oLK"/>
                         <outlet property="detailDescriptionLabel" destination="vcj-eq-hal" id="gA9-zS-Cfe"/>
+                        <outlet property="pokemonImageView" destination="6ix-lC-Mnn" id="SUB-gl-IFu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggh-13-3tH" sceneMemberID="firstResponder"/>
