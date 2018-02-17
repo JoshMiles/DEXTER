@@ -1,6 +1,6 @@
 import Foundation
 
 struct Pokemon {
-  let number : Int
+  let number : String
   let name : String
 }

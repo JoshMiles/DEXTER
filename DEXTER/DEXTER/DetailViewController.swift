@@ -5,7 +5,7 @@ class DetailViewController: UIViewController {
   
     @IBOutlet weak var webView: WKWebView!
     
-    var pokeNumber : Int = 0
+    var pokeNumber : String = "001"
     var detailPokemon: Pokemon? {
     didSet {
       configureView()
@@ -19,10 +19,6 @@ class DetailViewController: UIViewController {
     }
   func configureView() {
     if let detailPokemon = detailPokemon {
-      
-        //detailDescriptionLabel.text = detailPokemon.number
-       // pokedexDescription.text = detailPokemon.pokedexDesc
-        //pokemonImageView.image = UIImage(named: detailPokemon.name.lowercased())
         title = detailPokemon.name
         pokeNumber = detailPokemon.number
       
@@ -33,7 +29,7 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     configureView()
     webView.scrollView.isScrollEnabled = true
-    let url = URL(string: ("https://db.pokemongohub.net/pokemon/" + String(pokeNumber)))!
+    let url = URL(string: "https://www.theflirtations.uk/pogo/index.php?id=" + pokeNumber)!
     webView.load(URLRequest(url: url))
     webView.allowsBackForwardNavigationGestures = true
   }

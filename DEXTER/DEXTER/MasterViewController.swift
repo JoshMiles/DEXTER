@@ -33,9 +33,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     super.viewDidLoad()
     
     pokemons = [
-        Pokemon(number:1, name:"Bulbasaur"),
-        Pokemon(number:2, name:"Ivysaur"),
-        Pokemon(number:3, name:"Venusaur")
+        Pokemon(number:"001", name:"Bulbasaur"),
+        Pokemon(number:"002", name:"Ivysaur"),
+        Pokemon(number:"003", name:"Venusaur")
     ]
     
    
