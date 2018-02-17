@@ -19,7 +19,7 @@ class SecondViewController: UIViewController, WKNavigationDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        webView.scrollView.isScrollEnabled = false
         let url = URL(string: "https://www.pokemongomap.info")!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
