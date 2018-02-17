@@ -33,20 +33,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
     super.viewDidLoad()
     
     pokemons = [
-        Pokemon(category:"#001", name:"Bulbasaur"),
-        /*Candy(category:"Chocolate", name:"Dark Chocolate"),
-        Candy(category:"Hard", name:"Lollipop"),
-        Candy(category:"Hard", name:"Candy Cane"),
-        Candy(category:"Hard", name:"Jaw Breaker"),
-        Candy(category:"Other", name:"Caramel"),
-        Candy(category:"Other", name:"Sour Chew"),
-        Candy(category:"Other", name:"Gummi Bear"),
-        Candy(category:"Other", name:"Candy Floss"),
-        Candy(category:"Chocolate", name:"Chocolate Coin"),
-        Candy(category:"Chocolate", name:"Chocolate Egg"),
-        Candy(category:"Other", name:"Jelly Beans"),
-        Candy(category:"Other", name:"Liquorice"),
-        Candy(category:"Hard", name:"Toffee Apple")*/
+        Pokemon(number:1, name:"Bulbasaur"),
+        Pokemon(number:2, name:"Ivysaur"),
+        Pokemon(number:3, name:"Venusaur")
     ]
     
    
@@ -97,7 +86,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
             pokemon = pokemons[indexPath.row]
         }
         cell.textLabel!.text = pokemon.name
-        cell.detailTextLabel!.text = pokemon.category
+        cell.detailTextLabel!.text = ("#" + String(pokemon.number))
         return cell
     }
   

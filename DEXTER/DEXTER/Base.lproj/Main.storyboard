@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14081.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -77,53 +76,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fWt-7O-Yg6">
-                                <rect key="frame" x="20" y="74" width="339" height="544"/>
-                                <subviews>
-                                    <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-eq-hal">
-                                        <rect key="frame" x="0.0" y="0.0" width="339" height="34"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="9yH-Lc-1jP"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="byD-xo-vKy">
-                                        <rect key="frame" x="19.5" y="34" width="300" height="510"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="bulbasaur" translatesAutoresizingMaskIntoConstraints="NO" id="6ix-lC-Mnn" userLabel="Pokemon Image View">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="510"/>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="vcj-eq-hal" firstAttribute="leading" secondItem="fWt-7O-Yg6" secondAttribute="leading" id="2KJ-DX-4nJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="vcj-eq-hal" secondAttribute="trailing" id="rq1-L9-8HL"/>
-                                </constraints>
-                            </stackView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzh-3h-BXk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="fWt-7O-Yg6" secondAttribute="trailing" id="8N4-0o-NyL"/>
-                            <constraint firstItem="fWt-7O-Yg6" firstAttribute="top" secondItem="gtH-qv-rxc" secondAttribute="bottom" constant="10" id="NHR-XY-U2J"/>
-                            <constraint firstItem="fWt-7O-Yg6" firstAttribute="leading" secondItem="VnZ-5m-im9" secondAttribute="leading" constant="20" id="R8H-eB-WWw"/>
-                            <constraint firstItem="fWt-7O-Yg6" firstAttribute="bottom" secondItem="Rz5-aT-AUP" secondAttribute="top" id="rUv-OD-Y9f"/>
+                            <constraint firstItem="Rz5-aT-AUP" firstAttribute="top" secondItem="yzh-3h-BXk" secondAttribute="bottom" id="2C6-We-iXv"/>
+                            <constraint firstItem="yzh-3h-BXk" firstAttribute="trailing" secondItem="7CL-9v-MQo" secondAttribute="trailing" id="nbd-KD-G7Y"/>
+                            <constraint firstItem="yzh-3h-BXk" firstAttribute="leading" secondItem="7CL-9v-MQo" secondAttribute="leading" id="vpp-oC-Tw0"/>
+                            <constraint firstItem="yzh-3h-BXk" firstAttribute="top" secondItem="gtH-qv-rxc" secondAttribute="bottom" id="xWR-ek-ADK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7CL-9v-MQo"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Pokémon" largeTitleDisplayMode="always" id="34q-tH-F6V" userLabel="Pokemon"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="vcj-eq-hal" id="gA9-zS-Cfe"/>
-                        <outlet property="pokemonImageView" destination="6ix-lC-Mnn" id="SUB-gl-IFu"/>
+                        <outlet property="webView" destination="yzh-3h-BXk" id="XjO-T0-Lhg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggh-13-3tH" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3348" y="48.125937031484263"/>
+            <point key="canvasLocation" x="3346.4000000000001" y="47.226386806596707"/>
         </scene>
         <!--Pokédex!-->
         <scene sceneID="lqE-5Y-sPu">
@@ -255,7 +234,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bulbasaur" width="300" height="280"/>
         <image name="first" width="30" height="30"/>
         <image name="inline_logo.png" width="1000" height="250"/>
         <image name="second" width="30" height="30"/>
