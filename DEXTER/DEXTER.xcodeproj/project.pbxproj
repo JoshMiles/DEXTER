@@ -19,9 +19,9 @@
 		03F5ECD12037E7ED00DC4255 /* inline_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F5ECD02037E7EC00DC4255 /* inline_logo.png */; };
 		03F5ECD32037E91D00DC4255 /* SearchFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECD22037E91D00DC4255 /* SearchFooter.swift */; };
 		03F5ECD52037E95500DC4255 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECD42037E95500DC4255 /* Theme.swift */; };
-		03F5ECD92037EA1400DC4255 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECD62037EA1400DC4255 /* MasterViewController.swift */; };
-		03F5ECDA2037EA1400DC4255 /* Candy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECD72037EA1400DC4255 /* Candy.swift */; };
-		03F5ECDB2037EA1400DC4255 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECD82037EA1400DC4255 /* DetailViewController.swift */; };
+		03F5ECDF20386FAC00DC4255 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */; };
+		03F5ECE020386FAC00DC4255 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDD20386FAC00DC4255 /* Pokemon.swift */; };
+		03F5ECE120386FAC00DC4255 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +60,9 @@
 		03F5ECD02037E7EC00DC4255 /* inline_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inline_logo.png; path = ../GRAPHICS/PNGs/inline_logo.png; sourceTree = "<group>"; };
 		03F5ECD22037E91D00DC4255 /* SearchFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooter.swift; sourceTree = "<group>"; };
 		03F5ECD42037E95500DC4255 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
-		03F5ECD62037EA1400DC4255 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ../../../../Downloads/CandySearch_4_Starter/CandySearch/MasterViewController.swift; sourceTree = "<group>"; };
-		03F5ECD72037EA1400DC4255 /* Candy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Candy.swift; path = ../../../../Downloads/CandySearch_4_Starter/CandySearch/Candy.swift; sourceTree = "<group>"; };
-		03F5ECD82037EA1400DC4255 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = ../../../../Downloads/CandySearch_4_Starter/CandySearch/DetailViewController.swift; sourceTree = "<group>"; };
+		03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		03F5ECDD20386FAC00DC4255 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +115,9 @@
 		03F5EC872037CC5400DC4255 /* DEXTER */ = {
 			isa = PBXGroup;
 			children = (
-				03F5ECD72037EA1400DC4255 /* Candy.swift */,
-				03F5ECD82037EA1400DC4255 /* DetailViewController.swift */,
-				03F5ECD62037EA1400DC4255 /* MasterViewController.swift */,
+				03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */,
+				03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */,
+				03F5ECDD20386FAC00DC4255 /* Pokemon.swift */,
 				03F5EC882037CC5400DC4255 /* AppDelegate.swift */,
 				03F5EC8A2037CC5400DC4255 /* FirstViewController.swift */,
 				03F5EC8C2037CC5400DC4255 /* SecondViewController.swift */,
@@ -282,14 +282,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F5ECE120386FAC00DC4255 /* DetailViewController.swift in Sources */,
 				03F5EC8D2037CC5400DC4255 /* SecondViewController.swift in Sources */,
 				03F5EC892037CC5400DC4255 /* AppDelegate.swift in Sources */,
-				03F5ECDA2037EA1400DC4255 /* Candy.swift in Sources */,
-				03F5ECD92037EA1400DC4255 /* MasterViewController.swift in Sources */,
 				03F5ECD52037E95500DC4255 /* Theme.swift in Sources */,
+				03F5ECE020386FAC00DC4255 /* Pokemon.swift in Sources */,
+				03F5ECDF20386FAC00DC4255 /* MasterViewController.swift in Sources */,
 				03F5ECD32037E91D00DC4255 /* SearchFooter.swift in Sources */,
 				03F5EC8B2037CC5400DC4255 /* FirstViewController.swift in Sources */,
-				03F5ECDB2037EA1400DC4255 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

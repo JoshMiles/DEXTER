@@ -68,7 +68,7 @@
         <!--Detail-->
         <scene sceneID="qP0-ej-yRZ">
             <objects>
-                <viewController title="Detail" id="ttI-V2-3aE" customClass="DetailViewController" customModule="CandySearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Detail" id="ttI-V2-3aE" customClass="DetailViewController" customModule="DEXTER" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gtH-qv-rxc"/>
                         <viewControllerLayoutGuide type="bottom" id="Rz5-aT-AUP"/>
@@ -93,7 +93,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="byD-xo-vKy">
                                         <rect key="frame" x="19.5" y="34" width="300" height="510"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="6ix-lC-Mnn">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="bulbasaur" translatesAutoresizingMaskIntoConstraints="NO" id="6ix-lC-Mnn" userLabel="Pokemon Image View">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="510"/>
                                             </imageView>
                                         </subviews>
@@ -115,7 +115,7 @@
                         <viewLayoutGuide key="safeArea" id="7CL-9v-MQo"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Chocolate" largeTitleDisplayMode="always" id="34q-tH-F6V"/>
+                    <navigationItem key="navigationItem" title="Pokémon" largeTitleDisplayMode="always" id="34q-tH-F6V" userLabel="Pokemon"/>
                     <connections>
                         <outlet property="candyImageView" destination="6ix-lC-Mnn" id="ggj-Ps-oLK"/>
                         <outlet property="detailDescriptionLabel" destination="vcj-eq-hal" id="gA9-zS-Cfe"/>
@@ -142,7 +142,7 @@
         <!--Master-->
         <scene sceneID="cmE-uJ-jcg">
             <objects>
-                <viewController title="Master" id="2x0-BR-XCU" customClass="MasterViewController" customModule="CandySearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Master" id="2x0-BR-XCU" customClass="MasterViewController" customModule="DEXTER" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yTj-Nh-jAd"/>
                         <viewControllerLayoutGuide type="bottom" id="UaY-aA-e8p"/>
@@ -188,7 +188,7 @@
                                     <outlet property="delegate" destination="2x0-BR-XCU" id="J1c-HG-EjR"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ort-Pt-v9j" customClass="SearchFooter" customModule="CandySearch" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ort-Pt-v9j" customClass="SearchFooter" customModule="DEXTER">
                                 <rect key="frame" x="0.0" y="574" width="375" height="44"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -255,6 +255,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bulbasaur" width="300" height="280"/>
         <image name="first" width="30" height="30"/>
         <image name="inline_logo.png" width="1000" height="250"/>
         <image name="second" width="30" height="30"/>
