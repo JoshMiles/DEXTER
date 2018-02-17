@@ -15,7 +15,7 @@
 		03F5EC952037CC5500DC4255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03F5EC932037CC5500DC4255 /* LaunchScreen.storyboard */; };
 		03F5ECA02037CC5500DC4255 /* DEXTERTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5EC9F2037CC5500DC4255 /* DEXTERTests.swift */; };
 		03F5ECAB2037CC5500DC4255 /* DEXTERUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECAA2037CC5500DC4255 /* DEXTERUITests.swift */; };
-		03F5ECC12037D03B00DC4255 /* launch_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F5ECC02037D03B00DC4255 /* launch_screen.png */; };
+		03F5ECC52037D86500DC4255 /* launch_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F5ECC42037D86400DC4255 /* launch_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		03F5ECA62037CC5500DC4255 /* DEXTERUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DEXTERUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5ECAA2037CC5500DC4255 /* DEXTERUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DEXTERUITests.swift; sourceTree = "<group>"; };
 		03F5ECAC2037CC5500DC4255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03F5ECC02037D03B00DC4255 /* launch_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch_screen.png; path = ../GRAPHICS/PNGs/launch_screen.png; sourceTree = "<group>"; };
+		03F5ECC42037D86400DC4255 /* launch_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = launch_screen.png; path = ../GRAPHICS/PNGs/launch_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,7 @@
 		03F5EC7C2037CC5400DC4255 = {
 			isa = PBXGroup;
 			children = (
-				03F5ECC02037D03B00DC4255 /* launch_screen.png */,
+				03F5ECC42037D86400DC4255 /* launch_screen.png */,
 				03F5EC872037CC5400DC4255 /* DEXTER */,
 				03F5EC9E2037CC5500DC4255 /* DEXTERTests */,
 				03F5ECA92037CC5500DC4255 /* DEXTERUITests */,
@@ -237,7 +237,7 @@
 			files = (
 				03F5EC952037CC5500DC4255 /* LaunchScreen.storyboard in Resources */,
 				03F5EC922037CC5500DC4255 /* Assets.xcassets in Resources */,
-				03F5ECC12037D03B00DC4255 /* launch_screen.png in Resources */,
+				03F5ECC52037D86500DC4255 /* launch_screen.png in Resources */,
 				03F5EC902037CC5400DC4255 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
