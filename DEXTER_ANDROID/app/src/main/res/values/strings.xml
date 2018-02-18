@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Dexter</string>
+    <string name="title_home">Pokédex</string>
+    <string name="title_dashboard">Pokéstops and Gyms</string>
+    <string name="title_notifications">TSR Map</string>
+</resources>
