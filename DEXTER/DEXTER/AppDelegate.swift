@@ -16,8 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,  UISplitViewControllerDel
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        //Taplytics.startTaplyticsAPIKey("3275a1902bdd28bc1f9497604c039a0b8d7e52b5")
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        return false
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
