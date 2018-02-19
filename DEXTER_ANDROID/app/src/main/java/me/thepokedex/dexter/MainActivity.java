@@ -1,4 +1,4 @@
-package me.thepokedex.a01000101studios.dexter;
+package me.thepokedex.dexter;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
