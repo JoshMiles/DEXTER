@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/JoshMiles/Dexter.svg?token=TQEpVyHaG3eKiyJP17Rp&branch=master)](https://travis-ci.com/JoshMiles/Dexter)
+
 # Dexter
 The Pokémon Go companion app!
 
