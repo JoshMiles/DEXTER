@@ -1,6 +1,51 @@
-language: csharp
-solution: "./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln"
-install:
-- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
-script:
-  - xbuild ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
+#matrix:
+#  include:
+#    - language: csharp
+#        solution: "./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln"
+#        install:
+#          - travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
+#        script:
+#          - xbuild ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
+matrix:
+  include:
+    #- language: python
+    #  python: "2.7"
+    #  install:
+    #    - "pip install wheel twine"
+    #  script:
+    #    - "cd python/"
+    #    - 'VERSION="$TRAVIS_TAG" python setup.py sdist bdist_wheel'
+    #    - "cd ../"
+    #  deploy:
+    #    # Checkpointed release builds.
+    #    - provider: script
+    #      script: .travis/deploy-python.sh
+    #      skip_cleanup: true
+    #      on:
+    #        tags: true
+    #        # all_branches must be set with tags: true. See below post:
+    #        # https://stackoverflow.com/a/27775257/1076585
+    #        all_branches: true
+    #    # Produce a new build for the cutting edge when master changes.
+    #    - provider: script
+    #      script: .travis/deploy-python.sh
+    #      skip_cleanup: true
+    #      on:
+    #        branch: master
+    - language: csharp
+      os:
+      - linux
+      - osx
+      solution: "./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln"
+      install:
+      - travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
+      script:
+      - xbuild ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
+
+    - language: objective-c
+      osx_image: xcode9.2
+      branches:
+        only:
+          - master
+      install: gem install xcpretty
+      script: make test
