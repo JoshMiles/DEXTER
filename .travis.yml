@@ -1,11 +1,6 @@
-matrix:
-  include:
-    - language: C#
-      solution: POKEMON_PARSER.sln
-      before_script:
-        - cd DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/
-        - gem install rake
-        mono:
-          - latest
-          - 3.12.0
-          - 3.10.0
+language: csharp
+solution: "./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln"
+install:
+- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
+script:
+  - xbuild ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
