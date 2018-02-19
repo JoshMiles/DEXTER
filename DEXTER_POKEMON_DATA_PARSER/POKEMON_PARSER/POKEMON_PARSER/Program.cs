@@ -13,321 +13,299 @@ namespace POKEMON_PARSER
         {
             Console.WriteLine("Press enter to begin!");
             Console.ReadKey();
+            Console.Clear();
             Console.WriteLine("Pulling data from https://rankedboost.com/pokemon-go/");
+            Console.WriteLine("=======");
             getPokemons();
             Console.ReadLine();
 
         }
 
-        static void getPokemon2(int pokemon_id, List<Pokemon> pokemons){
+        static void getPokemon(int start_pokemon_id, int end_pokemon_id, List<Pokemon> pokemons){
             bool running = true;
             while(running){
                 Pokemon pokemon = new Pokemon();
 
-                pokemon.ID = pokemon_id - 1;
-                pokemon.PID = pokemon_id.ToString(fmt);
+                pokemon.ID = start_pokemon_id - 1;
+                pokemon.PID = start_pokemon_id.ToString(fmt);
 
-                Console.Write("PID: #" + pokemon_id);
+                Console.Write("PID: #" + start_pokemon_id);
 
-                var html = "https://db.pokemongohub.net/pokemon/" + pokemon_id;
+                var html = "https://db.pokemongohub.net/pokemon/" + start_pokemon_id;
                 HtmlWeb web = new HtmlWeb();
                 var htmlDoc = web.Load(html);
                 Console.Write(" ->");
                 var node = htmlDoc.DocumentNode.FirstChild;
 
+                // find pokemon's name
+
                 try{
                     node = htmlDoc.DocumentNode.SelectNodes("//h1")[0];
                     pokemon.name = node.InnerText;
+                    cw(pokemon.name + " ..");
                 }catch{
-                    cw("name error");
+                    cw("name error ..");
                 }
 
 
+                // find pokemon's pokedex description
+
+                try{
+                    node = htmlDoc.DocumentNode.SelectNodes("//div[@class='pokemon-description']")[0];
+                    pokemon.description = node.InnerHtml.Replace("<a href=\"#movesets\">Moves</a>","");
+                    pokemon.description = pokemon.description.Replace("<a href=\"#counters\">Counters</a>", "");
+                    pokemon.description = pokemon.description.Replace("<a href=\"#typechart\">Type chart</a>", "");
+                    pokemon.description = pokemon.description.Replace("<a href=\"#minmaxcp\">Max CP / Lvl</a>", "");
+                    pokemon.description = pokemon.description.Replace("<a href=\"#comments\">Comments</a>", "");
+                    pokemon.description = pokemon.description.Replace("<ul>", "");
+                    pokemon.description = pokemon.description.Replace("<li>", "");
+                    pokemon.description = pokemon.description.Replace("</li>", "");
+                    pokemon.description = pokemon.description.Replace("</ul>", "");
+                    pokemon.description = pokemon.description.Replace("\n\n", "");
+                }catch{
+                    cw("description error ..");
+                }
+
+                // find pokemon's typing
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//div[@class='pokemon-typing']")[0];
+                    string[] typing_splt = node.InnerHtml.Split('"');
+                    pokemon.type1 = typing_splt[1].Replace("/type/", "").ToUpper();
+                    pokemon.type2 = typing_splt[5].Replace("/type/", "").ToUpper();                                       
+                }catch{
+                    cw("only one type ..");
+                }
+
+                // find pokemon's max cp
+
+                try{
+                    node = htmlDoc.DocumentNode.SelectNodes("//tr[@class='max-cp']")[0];
+                    pokemon.maxCP = node.InnerHtml.Split('\n')[3];
+                                                              
+                }catch{
+                    cw("max cp error ..");
+                }
+
+                // find pokemon's normal image url
+                try{
+                    node = htmlDoc.DocumentNode.SelectNodes("//img[@class='normal']")[0];
+                    pokemon.imageURL = node.OuterHtml.Replace("<img class=\"normal\" src=\"", "https://db.pokemongohub.net");
+                    string[] img_splt = pokemon.imageURL.Split('"');
+                    pokemon.imageURL = img_splt[0];
+                }catch{
+                    cw("norm image error ..");   
+                }
+
+                // find pokemon's shiny image url
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//img[@class='shiny']")[0];
+                    pokemon.shinyImageURL = node.OuterHtml.Replace("<img class=\"shiny\" data-src=\"", "https://db.pokemongohub.net");
+                    string[] img_splt = pokemon.shinyImageURL.Split('"');
+                    pokemon.shinyImageURL = img_splt[0];
+                }
+                catch
+                {
+                    cw("shiny image error ..");
+                }
+
+
+                // find pokemon's attk value
+
+                try{
+                    node = htmlDoc.DocumentNode.SelectNodes("//tr[@class='stat atk']")[0];
+                    string[] splt = node.InnerText.Split('\n');
+                    pokemon.attack = splt[3];
+                }catch{
+                    cw("attk error ..");
+                }
+
+                // find pokemon's def value
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//tr[@class='stat def']")[0];
+                    string[] splt = node.InnerText.Split('\n');
+                    pokemon.defense = splt[3];
+                }
+                catch
+                {
+                    cw("def error ..");
+                }
+
+                // find pokemon's sta value
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//tr[@class='stat sta']")[0];
+                    string[] splt = node.InnerText.Split('\n');
+                    pokemon.stamina = splt[3];
+                }
+                catch
+                {
+                    cw("sta error ..");
+                }
+
+                // find rarity
+
+                try{
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Rarity']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.rarity = splt[3];
+                                                                  
+                }catch{
+                    cw("rarity error ..");
+                }
+                // find buddy distance
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Buddy Distance']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.buddyDistance = splt[4];
+
+                }
+                catch
+                {
+                    cw("buddy distance error ..");
+                }
+                // find candy to evolve
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Candy to evolve']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.candyEvolve = splt[3];
+
+                }
+                catch
+                {
+                    cw("evolve candy error ..");
+                }
+                // find rarity
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Capture Rate']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.captureRate = splt[3];
+
+                }
+                catch
+                {
+                    cw("capture rate error ..");
+                }
+                // find flee rate
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Flee Rate']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.fleeRate = splt[3];
+
+                }
+                catch
+                {
+                    cw("flee rate error ..");
+                }
+                // find weight
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Weight']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.weight = splt[3];
+
+                }
+                catch
+                {
+                    cw("weight error ..");
+                }
+                // find height
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Height']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.height = splt[3];
+
+                }
+                catch
+                {
+                    cw("height error ..");
+                }
+                // find generation
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Generation']")[0];
+                    string[] splt = node.ParentNode.InnerText.Split('\n');
+                    pokemon.generation = splt[3];
+
+                }
+                catch
+                {
+                    cw("generation error ..");
+                }
+                // find legendary
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Legendary']")[0];
+                    string[] splt = node.ParentNode.InnerHtml.Split('\n');
+                    pokemon.legendary = splt[3];
+
+                }
+                catch
+                {
+                    cw("legendary error ..");
+                }
+                // find weather boosts
+
+                try
+                {
+                    node = htmlDoc.DocumentNode.SelectNodes("//th[text()='Weather boost']")[0];
+                    string[] splt = node.ParentNode.InnerHtml.Split('\n');
+                    pokemon.weatherBoost = splt[7] + ", " + splt[11];
+
+                }
+                catch
+                {
+                    cw("weather boost error ..");
+                }
+
+                // find pokedex entry
+
+                try{
+                    node = htmlDoc.DocumentNode.SelectNodes("//h2[text()=' More information']")[0];
+                    pokemon.pokedexEntry = node.ParentNode.InnerText.Split('\n')[4];
+                }catch{
+                    cw("pokedex entry error ..");
+                }
                 pokemons.Add(pokemon);
-                cw("done");
+
+                cw("done\n");
+                start_pokemon_id++;
+                if (start_pokemon_id == end_pokemon_id + 1;)
+                {
+                    running = false;
+                }
             }
             Console.WriteLine("\n\nfinished data collection.");
         }
 
         static void cw(string text) { Console.Write(text); }
 
-        static void getPokemon(string pokemon_name, List<Pokemon> pokemons)
-        {
-            bool running = true;
-            while (running)
-            {
-                if (pokemon_name == "nidoranf") { pokemon_name = "nidoran-2"; }
-
-                if (pokemon_name == "nidoranm") { pokemon_name = "nidoran"; }
-
-                // create new instance of Pokemon
-                Pokemon pokemon = new Pokemon();
-                Console.Write("\n\nGrabbing Pokemon: " + @"https://rankedboost.com/pokemon-go/" + pokemon_name + "/");
-                // load pokemon
-                var html = @"https://rankedboost.com/pokemon-go/" + pokemon_name + "/";
-                HtmlWeb web = new HtmlWeb();
-                Console.Write(" .");
-                var htmlDoc = web.Load(html);
-                //Console.Write("Grabbed...");
-                //Console.Write("Parsing data...");
-                Console.Write("..");
-                var node = htmlDoc.DocumentNode.FirstChild;
-                string temp = "";
-                // get Pokémon ID and Generatio
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectSingleNode("//div[@class='PokemonIDDiv']");
-                    string[] gen_id = node.InnerText.Split('-');
-                    temp = gen_id[0].Replace("Gen ", ""); // remove gen
-                    temp = temp.Replace(" ", ""); // remove white space
-                    pokemon.generation = temp; // set generation
-                    temp = gen_id[1].Replace(" #", "");
-                    int temp2 = int.Parse(temp); // convert to int
-                    pokemon.ID = temp2; // set id 
-                    temp = temp2.ToString(fmt); // format properly
-                    pokemon.PID = temp; // set pid
-                }
-                catch
-                {
-                    Console.Write("Could not find generation / pokedex ID..");
-                }
-                // get Pokemon name
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectSingleNode("//h2[@class='PokemonNameDivTitle']");
-                    pokemon.name = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not find Pokemon name..");
-                }
-                // get pokemon's pogo image url
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectSingleNode("//img[@class='MainPokemonImage']");
-                    string[] parts_url = node.OuterHtml.Split('"');
-                    pokemon.imageURL = parts_url[3];
-                }
-                catch
-                {
-                    Console.Write("Issue finding image. Attempting unreleased image grab... ");
-                    try
-                    {
-                        node = htmlDoc.DocumentNode.SelectSingleNode("//img[@class='MainPokemonImageUnrealeased']");
-                        string[] parts_url = node.OuterHtml.Split('"');
-                        pokemon.imageURL = parts_url[3];
-                        Console.Write("success..");
-                    }
-                    catch
-                    {
-                        Console.Write("fail..");
-                    }
-                }
-
-                // get pokemon's weight
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[0];
-                    pokemon.weight = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get pokemon weight..");
-                }
-                // get pokemon types
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[1];
-                    string[] parts_type = node.InnerHtml.Split('"');
-                    temp = parts_type[3].Replace("sm_type_img ", "");
-                    pokemon.type1 = temp.ToUpper();
-                    temp = parts_type[7].Replace("sm_type_img ", "");
-                    pokemon.type2 = temp.ToUpper();
-                }
-                catch
-                {
-                    Console.Write("Error finding type 2. Presume no type 2..");
-                }
-
-                // get pokemon height
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[2];
-                    pokemon.height = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get pokemon height..");
-                }
-
-                // get pokemon max cp
-                try
-                {
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='one_col']")[0];
-                    pokemon.maxCP = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get max cp..");
-                }
-
-                try
-                {
-                    // get pokemon attack
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='one_col']")[2];
-                    pokemon.attack = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get atk..");
-                }
-                try
-                {
-                    // get pokemon defense
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='one_col']")[4];
-                    pokemon.defense = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get def..");
-                }
-                try
-                {
-                    // get pokemon stanima
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='one_col']")[6];
-                    pokemon.stamina = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get sta..");
-                }
-                try
-                {
-                    // get pokemon male percentile
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='GenderMaleTizzy']")[0];
-                    pokemon.malePercent = node.InnerText.Replace(" /", "").Replace("Male ", "");
-                }
-                catch
-                {
-                    Console.Write("Could not get male perc..");
-                }
-                try
-                {
-                    // get pokemon female percentile
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='GenderFemaleTizzy']")[0];
-                    pokemon.femalePercent = node.InnerText.Replace("Female ", "");
-                }
-                catch
-                {
-                    Console.Write("Could not get female perc..");
-                }
-                try
-                {
-                    // get flee rate
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[3];
-                    pokemon.fleeRate = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get flee rate..");
-                }
-                try
-                {
-                    // get capture rate
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[4];
-                    pokemon.captureRate = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get capture rate..");
-                }
-                try
-                {
-                    // get rarity
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[5];
-                    pokemon.rarity = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get rarity..");
-                }
-                try
-                {
-                    // get buddy candy distance
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[6];
-                    pokemon.buddyCandy = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get buddy distance..");
-                }
-                try
-                {
-                    // get egg hatch
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[7];
-                    pokemon.eggHatch = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get egg hatch..");
-                }
-                try
-                {
-                    // get buddy size
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokemonWeightKG']")[8];
-                    pokemon.buddySize = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get buddy size..");
-                }
-                try
-                {
-                    // get pokedex entry
-                    node = htmlDoc.DocumentNode.SelectNodes("//td[@class='PokedexEntryText']")[0];
-                    pokemon.pokedexEntry = node.InnerText;
-                }
-                catch
-                {
-                    Console.Write("Could not get pokedex entry..");
-                }
-                // get evolutions
-
-                // get evolution description
-
-                Console.Write("done.");
-                pokemons.Add(pokemon);
-                //Console.Write("..saved");
-                //Console.Write("..retrieving next");
-                node = htmlDoc.DocumentNode.SelectNodes("//div[@class='Next']")[0];
-                string[] nxt_pkmn = node.ParentNode.OuterHtml.Split('"');
-                string[] nxtpkmn = nxt_pkmn[1].Split('/');
-
-                if (pokemon_name == "bayleef")
-                {
-                    pokemon_name = "meganium";
-                }
-                else
-                {
-                    pokemon_name = nxtpkmn[2];
-                }
-                if (pokemon_name == "turtwig")
-                {
-                    running = false;
-                }
-
-
-            }
-            Console.WriteLine("\n\nFinished collecting data.");
-            Console.ReadLine();
-        }
+  
         static void getPokemons()
         {
             List<Pokemon> pokemons = new List<Pokemon>();
 
-            getPokemon("celebi", pokemons);
+            getPokemon(1, 386, pokemons);
 
-            foreach (Pokemon mon in pokemons)
+           /* foreach (Pokemon mon in pokemons)
             {
                 PropertyInfo[] properties = mon.GetType().GetProperties();
                 foreach (PropertyInfo property in properties)
@@ -335,16 +313,7 @@ namespace POKEMON_PARSER
                     Console.WriteLine("{0} = {1}", property.Name, property.GetValue(mon, null));
                 }
             }
-
-            /*var html = @"https://rankedboost.com/pokemon-go/bulbasaur/";
-
-            HtmlWeb web = new HtmlWeb();
-
-            var htmlDoc = web.Load(html);
-
-            var node = htmlDoc.DocumentNode.SelectSingleNode("//td[@class='PokemonWeightKG']");
-
-            Console.WriteLine("Node Name: " + node.InnerText);*/
+*/
         }
     }
 
@@ -352,9 +321,11 @@ namespace POKEMON_PARSER
     {
         public int ID { get; set; }
         public string PID { get; set; }
+        public string description { get; set; }
         public string name { get; set; }
         public string generation { get; set; }
         public string imageURL { get; set; }
+        public string shinyImageURL { get; set; }
         public string weight { get; set; }
         public string type1 { get; set; }
         public string type2 { get; set; }
@@ -363,17 +334,14 @@ namespace POKEMON_PARSER
         public string attack { get; set; }
         public string defense { get; set; }
         public string stamina { get; set; }
-        public string malePercent { get; set; }
-        public string femalePercent { get; set; }
         public string fleeRate { get; set; }
         public string captureRate { get; set; }
         public string rarity { get; set; }
-        public string buddyCandy { get; set; }
-        public string eggHatch { get; set; }
-        public string buddySize { get; set; }
+        public string buddyDistance { get; set; }
         public string pokedexEntry { get; set; }
-        public string evolutions { get; set; }
-        public string evolutionDesc { get; set; }
+        public string candyEvolve { get; set; }
+        public string legendary { get; set; }
+        public string weatherBoost { get; set; }
 
     }
 
