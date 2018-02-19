@@ -5,4 +5,6 @@ The Pokémon Go companion app!
 - Android port
 - Add IV calculator
 - Icons next to names in Pokédex
-- Add updated data to the database
+- Add more Pokemon data to database
+- Progress bar / loading gif on the web elemtents on the iOS app
+- Evolution data and links within the Pokédex

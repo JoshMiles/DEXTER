@@ -46,6 +46,7 @@ namespace POKEMON_PARSER
                     cw(pokemon.name + " ..");
                 }catch{
                     cw("name error ..");
+                    pokemon.name = " ";
                 }
 
 
@@ -61,6 +62,7 @@ namespace POKEMON_PARSER
                             pokemon.description += lines[i] + " ";
                         }
                     }
+                    pokemon.description = pokemon.description.Replace(".", ".<br>").Replace("It evolves for", "It takes ").Replace("Candy.", " candy to evolve!").Replace("Pokemon","<h2>Pokemon").Replace("CP.","CP.<h2>");
                     /*pokemon.description = node.InnerHtml.Replace("<a href=\"#movesets\">Moves</a>","");
                     pokemon.description = pokemon.description.Replace("<a href=\"#counters\">Counters</a>", "");
                     pokemon.description = pokemon.description.Replace("<a href=\"#typechart\">Type chart</a>", "");
@@ -73,6 +75,7 @@ namespace POKEMON_PARSER
                     pokemon.description = pokemon.description.Replace("\n\n", "");*/
                 }catch{
                     cw("description error ..");
+                    pokemon.description = " ";
                 }
 
                 // find pokemon's typing
@@ -85,6 +88,7 @@ namespace POKEMON_PARSER
                     pokemon.type2 = typing_splt[5].Replace("/type/", "").ToUpper();                                       
                 }catch{
                     cw("only one type ..");
+                    pokemon.type2 = " ";
                 }
 
                 // find pokemon's max cp
@@ -95,6 +99,7 @@ namespace POKEMON_PARSER
                                                               
                 }catch{
                     cw("max cp error ..");
+                    pokemon.maxCP = " ";
                 }
 
                 // find pokemon's normal image url
@@ -104,7 +109,8 @@ namespace POKEMON_PARSER
                     string[] img_splt = pokemon.imageURL.Split('"');
                     pokemon.imageURL = img_splt[0];
                 }catch{
-                    cw("norm image error ..");   
+                    cw("norm image error ..");
+                    pokemon.imageURL = " ";
                 }
 
                 // find pokemon's shiny image url
@@ -118,6 +124,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("shiny image error ..");
+                    pokemon.shinyImageURL = " ";
                 }
 
 
@@ -129,6 +136,7 @@ namespace POKEMON_PARSER
                     pokemon.attack = splt[3];
                 }catch{
                     cw("attk error ..");
+                    pokemon.attack = " ";
                 }
 
                 // find pokemon's def value
@@ -142,6 +150,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("def error ..");
+                    pokemon.defense = " ";
                 }
 
                 // find pokemon's sta value
@@ -155,6 +164,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("sta error ..");
+                    pokemon.stamina = " ";
                 }
 
                 // find rarity
@@ -166,6 +176,7 @@ namespace POKEMON_PARSER
                                                                   
                 }catch{
                     cw("rarity error ..");
+                    pokemon.rarity = " ";
                 }
                 // find buddy distance
 
@@ -179,6 +190,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("buddy distance error ..");
+                    pokemon.buddyDistance = " ";
                 }
                 // find candy to evolve
 
@@ -192,6 +204,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("evolve candy error ..");
+                    pokemon.candyEvolve = " ";
                 }
                 // find rarity
 
@@ -205,6 +218,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("capture rate error ..");
+                    pokemon.captureRate = " ";
                 }
                 // find flee rate
 
@@ -218,6 +232,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("flee rate error ..");
+                    pokemon.fleeRate = " ";
                 }
                 // find weight
 
@@ -231,6 +246,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("weight error ..");
+                    pokemon.weight = " ";
                 }
                 // find height
 
@@ -244,6 +260,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("height error ..");
+                    pokemon.height = " ";
                 }
                 // find generation
 
@@ -257,6 +274,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("generation error ..");
+                    pokemon.generation = " ";
                 }
                 // find legendary
 
@@ -270,6 +288,7 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("legendary error ..");
+                    pokemon.legendary = " ";
                 }
                 // find weather boosts
 
@@ -283,15 +302,17 @@ namespace POKEMON_PARSER
                 catch
                 {
                     cw("weather boost error ..");
+                    pokemon.weatherBoost = " ";
                 }
 
                 // find pokedex entry
 
                 try{
                     node = htmlDoc.DocumentNode.SelectNodes("//h2[text()=' More information']")[0];
-                    pokemon.pokedexEntry = node.ParentNode.InnerText.Split('\n')[4];
+                    pokemon.pokedexEntry = node.ParentNode.InnerText.Split('\n')[4].Replace('’','\'');
                 }catch{
                     cw("pokedex entry error ..");
+                    pokemon.pokedexEntry = " ";
                 }
                 pokemons.Add(pokemon);
 
@@ -332,7 +353,11 @@ namespace POKEMON_PARSER
                     try
                     {
                         string line = property.GetValue(mon, null).ToString();
-                        csv_file += "\"" + line.Replace("\n", "").Replace("\"", "\"\"") + "\",";
+                        string end = ",";
+                        if(property.Name == "weatherBoost"){
+                            end = "";
+                        }
+                        csv_file += "\"" + line.Replace("\n", "").Replace("\"", "\"\"").Replace('é','e').Replace('`','\'') + "\"" + end;
                         //Console.WriteLine("{0} = {1}", property.Name, property.GetValue(mon, null));
                     }catch{
                         Console.Write("[!]");
