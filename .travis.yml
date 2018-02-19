@@ -1,6 +1,6 @@
 matrix:
   include:
-    - language: csharp
+    - language: C#
       solution: POKEMON_PARSER.sln
       before_script:
         - cd DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/
