@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using HtmlAgilityPack;
 using System.Reflection;
+using System.IO;
 
 namespace POKEMON_PARSER
 {
@@ -52,7 +53,15 @@ namespace POKEMON_PARSER
 
                 try{
                     node = htmlDoc.DocumentNode.SelectNodes("//div[@class='pokemon-description']")[0];
-                    pokemon.description = node.InnerHtml.Replace("<a href=\"#movesets\">Moves</a>","");
+                    string[] lines = node.InnerHtml.Split('\n');
+                    for (int i = 0; i < lines.Length; i++)
+                    {
+                        if (i <= 14)
+                        {
+                            pokemon.description += lines[i] + " ";
+                        }
+                    }
+                    /*pokemon.description = node.InnerHtml.Replace("<a href=\"#movesets\">Moves</a>","");
                     pokemon.description = pokemon.description.Replace("<a href=\"#counters\">Counters</a>", "");
                     pokemon.description = pokemon.description.Replace("<a href=\"#typechart\">Type chart</a>", "");
                     pokemon.description = pokemon.description.Replace("<a href=\"#minmaxcp\">Max CP / Lvl</a>", "");
@@ -61,7 +70,7 @@ namespace POKEMON_PARSER
                     pokemon.description = pokemon.description.Replace("<li>", "");
                     pokemon.description = pokemon.description.Replace("</li>", "");
                     pokemon.description = pokemon.description.Replace("</ul>", "");
-                    pokemon.description = pokemon.description.Replace("\n\n", "");
+                    pokemon.description = pokemon.description.Replace("\n\n", "");*/
                 }catch{
                     cw("description error ..");
                 }
@@ -288,7 +297,7 @@ namespace POKEMON_PARSER
 
                 cw("done\n");
                 start_pokemon_id++;
-                if (start_pokemon_id == end_pokemon_id + 1;)
+                if (start_pokemon_id == end_pokemon_id + 1)
                 {
                     running = false;
                 }
@@ -305,15 +314,35 @@ namespace POKEMON_PARSER
 
             getPokemon(1, 386, pokemons);
 
-           /* foreach (Pokemon mon in pokemons)
+            string csv_file = "";
+            Pokemon pmon = new Pokemon();
+            PropertyInfo[] properties = pmon.GetType().GetProperties();
+            foreach (PropertyInfo property in properties)
             {
-                PropertyInfo[] properties = mon.GetType().GetProperties();
-                foreach (PropertyInfo property in properties)
-                {
-                    Console.WriteLine("{0} = {1}", property.Name, property.GetValue(mon, null));
-                }
+                csv_file += property.Name + ",";
+                //Console.WriteLine("{0} = {1}", property.Name, property.GetValue(mon, null));
             }
-*/
+            csv_file += '\n';
+
+           foreach (Pokemon mon in pokemons)
+            {
+                PropertyInfo[] properties2 = mon.GetType().GetProperties();
+                foreach (PropertyInfo property in properties2)
+                {
+                    try
+                    {
+                        string line = property.GetValue(mon, null).ToString();
+                        csv_file += "\"" + line.Replace("\n", "").Replace("\"", "\"\"") + "\",";
+                        //Console.WriteLine("{0} = {1}", property.Name, property.GetValue(mon, null));
+                    }catch{
+                        Console.Write("[!]");
+                    }
+                }
+                csv_file += "\n";
+            }
+            File.WriteAllText("output.csv", csv_file);
+            Console.WriteLine("Outputted file.");
+            Console.ReadKey(false);
         }
     }
 
