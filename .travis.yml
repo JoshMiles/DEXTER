@@ -1,10 +1,13 @@
 matrix:
   include:
-    - language: C#
-      before_script:
-        - cd backend/tests
-      script:
-        - python -m unittest discover
+    language: csharp
+    solution: POKEMON_PARSER.sln
+    before_script:
+      - cd DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/
+    mono:
+      - latest
+      - 3.12.0
+      - 3.10.0
 
     - language: android
       jdk: oraclejdk8
