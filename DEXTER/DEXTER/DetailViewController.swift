@@ -34,7 +34,7 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     configureView()
     webView.scrollView.isScrollEnabled = true
-    let url = URL(string: "https://www.theflirtations.uk/pogo/index.php?id=" + pokeNumber)!
+    let url = URL(string: "https://api.thepokedex.me/" + pokeNumber)!
     webView.load(URLRequest(url: url))
     webView.allowsBackForwardNavigationGestures = true
     

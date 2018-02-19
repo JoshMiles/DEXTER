@@ -42,11 +42,11 @@ matrix:
       script:
       - xbuild ./DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/POKEMON_PARSER.sln
 
-    - language: objective-c
-      osx_image: xcode9.2
-      branches:
-        only:
-          - master
-      install: gem install xcpretty
-      script:
-      - set -o pipefail && xcodebuild -project './DEXTER/DEXTER.xcodeproj' -scheme 'DEXTER' -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3beta2,name=iPhone X' clean test build | xcpretty -c
+  #  - language: objective-c
+  #    osx_image: xcode9.2
+  #    branches:
+  #      only:
+  #        - master
+  #    install: gem install xcpretty
+  #    script:
+  #    - set -o pipefail && xcodebuild -project './DEXTER/DEXTER.xcodeproj' -scheme 'DEXTER' -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3beta2,name=iPhone X' clean test build | xcpretty -c
