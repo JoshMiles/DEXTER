@@ -17,7 +17,7 @@ matrix:
           - android-25
           - build-tools-25.0.3
       before_script:
-        - cd DEXTER_ANDROID/DEXTER
+        - cd DEXTER_ANDROID
       script:
         - ./gradlew build connectedCheck
 
@@ -25,7 +25,7 @@ matrix:
       os: osx
       osx_image: xcode8.3
       before_script:
-        - cd DEXTER/DEXTER
+        - cd DEXTER
       script:
         - xcodebuild -workspace DEXTER.xcodeproj -scheme DEXTER
           -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' build test
