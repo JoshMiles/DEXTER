@@ -49,4 +49,4 @@ matrix:
           - master
       install: gem install xcpretty
       script:
-      - set -o pipefail && xcodebuild -project './DEXTER/DEXTER.xcodeproj' -scheme 'DEXTER' -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.2,name=iPhone X' clean test build | xcpretty -c
+      - set -o pipefail && xcodebuild -project './DEXTER/DEXTER.xcodeproj' -scheme 'DEXTER' -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3beta2,name=iPhone X' clean test build | xcpretty -c
