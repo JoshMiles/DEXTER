@@ -4,6 +4,7 @@ matrix:
       solution: POKEMON_PARSER.sln
       before_script:
         - cd DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/
+        - gem install rake
         mono:
           - latest
           - 3.12.0
