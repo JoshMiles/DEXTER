@@ -1,4 +1,4 @@
-package me.thepokedex.a01000101studios.dexter;
+package me.thepokedex.dexter;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("me.thepokedex.a01000101studios.dexter", appContext.getPackageName());
+        assertEquals("me.thepokedex.dexter", appContext.getPackageName());
     }
 }
