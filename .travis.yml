@@ -1,0 +1,32 @@
+matrix:
+  include:
+    - language: C#
+      before_script:
+        - cd backend/tests
+      script:
+        - python -m unittest discover
+
+    - language: android
+      jdk: oraclejdk8
+      android:
+        components:
+          - tools
+          - android-25
+          - build-tools-25.0.3
+      before_script:
+        - cd DEXTER_ANDROID/DEXTER
+      script:
+        - ./gradlew build connectedCheck
+
+    - language: objective-c
+      os: osx
+      osx_image: xcode8.3
+      before_script:
+        - cd DEXTER/DEXTER
+      script:
+        - xcodebuild -workspace DEXTER.xcodeproj -scheme DEXTER
+          -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' build test
+
+notifications:
+  email:
+    - joshmilesproduction@gmail.com
