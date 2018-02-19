@@ -2,23 +2,6 @@ matrix:
   include:
     - language: csharp
       solution: POKEMON_PARSER.sln
-<<<<<<< HEAD
-=======
-      before_script:
-        - cd DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/
-        mono:
-          - latest
-          - 3.12.0
-          - 3.10.0
-
-    - language: android
-      jdk: oraclejdk8
-      android:
-        components:
-          - tools
-          - android-25
-          - build-tools-25.0.3
->>>>>>> master
       before_script:
         - cd DEXTER_POKEMON_DATA_PARSER/POKEMON_PARSER/
         mono:
