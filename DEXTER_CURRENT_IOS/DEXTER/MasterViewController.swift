@@ -31,7 +31,6 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
   // MARK: - View Setup
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     pokemons = [
         Pokemon(number:"001", name:"Bulbasaur"),
         Pokemon(number:"002", name:"Ivysaur"),
