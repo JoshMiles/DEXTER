@@ -1,6 +1,6 @@
 # DEXTER!
 
-Build status: [![Build Status](https://travis-ci.com/JoshMiles/Dexter.svg?token=TQEpVyHaG3eKiyJP17Rp&branch=master)](https://travis-ci.com/JoshMiles/Dexter)
+Build status:  [![Build Status](https://travis-ci.com/JoshMiles/Dexter.svg?token=TQEpVyHaG3eKiyJP17Rp&branch=master)](https://travis-ci.com/JoshMiles/Dexter)
 
 ## What is DEXTER?
 DEXTER is Pokémon Go companion app that allows you to see up-to-date and relevant data about all the Pokémon in the game, where every Pokéstop and Gym is in the world and it lets you see where the Pokémon nests are.
