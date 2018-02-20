@@ -115,7 +115,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
         Pokemon(number:"080", name:"Slowbro"),
         Pokemon(number:"081", name:"Magnemite"),
         Pokemon(number:"082", name:"Magneton"),
-        Pokemon(number:"083", name:"Farfetch&#x27;d"),
+        Pokemon(number:"083", name:"Farfetch'd"),
         Pokemon(number:"084", name:"Doduo"),
         Pokemon(number:"085", name:"Dodrio"),
         Pokemon(number:"086", name:"Seel"),
