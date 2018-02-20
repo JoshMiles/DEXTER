@@ -31,7 +31,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
   // MARK: - View Setup
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    let htmlFile = Bundle.main.path(forResource:"MyHtmlFile", ofType: "html")
+    let htmlString = try? String(contentsOfFile: htmlFile!, encoding: String.Encoding.utf8)
+    webView.loadHTMLString(htmlString!, baseURL: nil)
     pokemons = [
         Pokemon(number:"001", name:"Bulbasaur"),
         Pokemon(number:"002", name:"Ivysaur"),
