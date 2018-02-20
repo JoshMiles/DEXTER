@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{9EF2931D-C472-4553-8F7D-86629A34A8A9}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="POKEMON_PARSER/Program.cs">
     <Files>
-      <File FileName="POKEMON_PARSER/Program.cs" Line="9" Column="38" />
+      <File FileName="POKEMON_PARSER/Program.cs" Line="32" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
@@ -9,5 +9,6 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.POKEMON__PARSER PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

@@ -15,7 +15,7 @@ namespace POKEMON_PARSER
             Console.WriteLine("Press enter to begin!");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("Pulling data from https://rankedboost.com/pokemon-go/");
+            Console.WriteLine("Pulling data from https://db.pokemongohub.net/pokemon/");
             Console.WriteLine("=======");
             getPokemons();
             Console.ReadLine();
@@ -338,16 +338,17 @@ namespace POKEMON_PARSER
             string csv_file = "";
             Pokemon pmon = new Pokemon();
             PropertyInfo[] properties = pmon.GetType().GetProperties();
-            foreach (PropertyInfo property in properties)
+           /* foreach (PropertyInfo property in properties)
             {
                 csv_file += property.Name + ",";
                 //Console.WriteLine("{0} = {1}", property.Name, property.GetValue(mon, null));
             }
-            csv_file += '\n';
+            csv_file += '\n';*/
 
            foreach (Pokemon mon in pokemons)
             {
-                PropertyInfo[] properties2 = mon.GetType().GetProperties();
+                csv_file += "Pokemon(number:\"" + mon.PID + "\", name:\"" + mon.name + "\"),\n";
+                /*PropertyInfo[] properties2 = mon.GetType().GetProperties();
                 foreach (PropertyInfo property in properties2)
                 {
                     try
@@ -363,9 +364,9 @@ namespace POKEMON_PARSER
                         Console.Write("[!]");
                     }
                 }
-                csv_file += "\n";
+                csv_file += "\n";*/
             }
-            File.WriteAllText("output.csv", csv_file);
+            File.WriteAllText("pokemon.txt", csv_file);
             Console.WriteLine("Outputted file.");
             Console.ReadKey(false);
         }
