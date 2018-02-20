@@ -13,3 +13,5 @@ The Pokémon Go companion app!
 - Evolution data and links within the Pokédex
 - Dynamically fill Pokédex table on app load
 - App won't load fully unless connected to internet as app's functions are useless without an internet connection.
+- html enconding on the server side.
+- upload server side code
