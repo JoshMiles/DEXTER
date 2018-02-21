@@ -1,0 +1,4 @@
+target "DEXTER" do
+  pod 'IJProgressView', :git => 'https://github.com/Isuru-Nanayakkara/IJProgressView.git'
+  use_frameworks!
+end

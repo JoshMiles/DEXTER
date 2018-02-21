@@ -1,0 +1,21 @@
+PODS:
+  - IJProgressView (0.1.0)
+
+DEPENDENCIES:
+  - IJProgressView (from `https://github.com/Isuru-Nanayakkara/IJProgressView.git`)
+
+EXTERNAL SOURCES:
+  IJProgressView:
+    :git: https://github.com/Isuru-Nanayakkara/IJProgressView.git
+
+CHECKOUT OPTIONS:
+  IJProgressView:
+    :commit: c109fd215ffb1168a362406edc69707d5e30dd6b
+    :git: https://github.com/Isuru-Nanayakkara/IJProgressView.git
+
+SPEC CHECKSUMS:
+  IJProgressView: 24ba8bade65ca7d500fc5c74c8d48e5cf2f3f246
+
+PODFILE CHECKSUM: 2bf267b44aad3f1afe03ce4125be7ba418533886
+
+COCOAPODS: 1.4.0

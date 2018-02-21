@@ -18,6 +18,7 @@ class ThirdViewController: UIViewController, WKNavigationDelegate {
         view = webView
     }
     override func viewDidLoad() {
+        IJProgressView.shared.showProgressView(webView)
         super.viewDidLoad()
         webView.scrollView.isScrollEnabled = false
         let url = URL(string: "https://thesilphroad.com/atlas")!
@@ -29,7 +30,15 @@ class ThirdViewController: UIViewController, WKNavigationDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        IJProgressView.shared.showProgressView(webView)
+    }
     
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        IJProgressView.shared.hideProgressView()
+    }
+
     
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03C7458C203B9A27005B7DAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C7458B203B9A27005B7DAA /* Images.xcassets */; };
+		03F40A42203D44E80034C801 /* IJProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F40A41203D44E80034C801 /* IJProgressView.swift */; };
 		03F5EC892037CC5400DC4255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5EC882037CC5400DC4255 /* AppDelegate.swift */; };
 		03F5EC8B2037CC5400DC4255 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5EC8A2037CC5400DC4255 /* FirstViewController.swift */; };
 		03F5EC8D2037CC5400DC4255 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5EC8C2037CC5400DC4255 /* SecondViewController.swift */; };
@@ -22,6 +23,7 @@
 		03F5ECE020386FAC00DC4255 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDD20386FAC00DC4255 /* Pokemon.swift */; };
 		03F5ECE120386FAC00DC4255 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */; };
 		03F5ECEA2038BC1700DC4255 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5ECE92038BC1700DC4255 /* ThirdViewController.swift */; };
+		A8C2F3B7FD5BE1766CC68C0A /* Pods_DEXTER.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79CD8D2409C51A8511784591 /* Pods_DEXTER.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		03C7458B203B9A27005B7DAA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		03F40A41203D44E80034C801 /* IJProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJProgressView.swift; sourceTree = "<group>"; };
 		03F5EC852037CC5400DC4255 /* DEXTER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DEXTER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F5EC882037CC5400DC4255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03F5EC8A2037CC5400DC4255 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +66,9 @@
 		03F5ECDD20386FAC00DC4255 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		03F5ECE92038BC1700DC4255 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		12F1FACAC515617D8BA4CAA1 /* Pods-DEXTER.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DEXTER.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DEXTER/Pods-DEXTER.debug.xcconfig"; sourceTree = "<group>"; };
+		79CD8D2409C51A8511784591 /* Pods_DEXTER.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DEXTER.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8A971DF3BB99F591B76471A /* Pods-DEXTER.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DEXTER.release.xcconfig"; path = "Pods/Target Support Files/Pods-DEXTER/Pods-DEXTER.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8C2F3B7FD5BE1766CC68C0A /* Pods_DEXTER.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +104,8 @@
 				03F5EC9E2037CC5500DC4255 /* DEXTERTests */,
 				03F5ECA92037CC5500DC4255 /* DEXTERUITests */,
 				03F5EC862037CC5400DC4255 /* Products */,
+				C6A2EFF42B26E8365626CEB5 /* Pods */,
+				FF266B46B90F5B25920BF667 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +122,7 @@
 		03F5EC872037CC5400DC4255 /* DEXTER */ = {
 			isa = PBXGroup;
 			children = (
+				03F40A41203D44E80034C801 /* IJProgressView.swift */,
 				03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */,
 				03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */,
 				03F5ECDD20386FAC00DC4255 /* Pokemon.swift */,
@@ -149,6 +159,23 @@
 			path = DEXTERUITests;
 			sourceTree = "<group>";
 		};
+		C6A2EFF42B26E8365626CEB5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				12F1FACAC515617D8BA4CAA1 /* Pods-DEXTER.debug.xcconfig */,
+				C8A971DF3BB99F591B76471A /* Pods-DEXTER.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF266B46B90F5B25920BF667 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				79CD8D2409C51A8511784591 /* Pods_DEXTER.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -156,9 +183,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 03F5ECAF2037CC5500DC4255 /* Build configuration list for PBXNativeTarget "DEXTER" */;
 			buildPhases = (
+				D08E457ECBC171701D68C132 /* [CP] Check Pods Manifest.lock */,
 				03F5EC812037CC5400DC4255 /* Sources */,
 				03F5EC822037CC5400DC4255 /* Frameworks */,
 				03F5EC832037CC5400DC4255 /* Resources */,
+				D7A01E7B0C37D3F10BC6D6FA /* [CP] Embed Pods Frameworks */,
+				841D21A62AD7B29F6FA4187E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,6 +306,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		841D21A62AD7B29F6FA4187E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DEXTER/Pods-DEXTER-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D08E457ECBC171701D68C132 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DEXTER-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7A01E7B0C37D3F10BC6D6FA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DEXTER/Pods-DEXTER-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IJProgressView/IJProgressView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IJProgressView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DEXTER/Pods-DEXTER-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		03F5EC812037CC5400DC4255 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -285,6 +369,7 @@
 				03F5ECEA2038BC1700DC4255 /* ThirdViewController.swift in Sources */,
 				03F5EC8D2037CC5400DC4255 /* SecondViewController.swift in Sources */,
 				03F5EC892037CC5400DC4255 /* AppDelegate.swift in Sources */,
+				03F40A42203D44E80034C801 /* IJProgressView.swift in Sources */,
 				03F5ECD52037E95500DC4255 /* Theme.swift in Sources */,
 				03F5ECE020386FAC00DC4255 /* Pokemon.swift in Sources */,
 				03F5ECDF20386FAC00DC4255 /* MasterViewController.swift in Sources */,
@@ -460,6 +545,7 @@
 		};
 		03F5ECB02037CC5500DC4255 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 12F1FACAC515617D8BA4CAA1 /* Pods-DEXTER.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -481,6 +567,7 @@
 		};
 		03F5ECB12037CC5500DC4255 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8A971DF3BB99F591B76471A /* Pods-DEXTER.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
