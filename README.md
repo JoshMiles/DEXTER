@@ -30,3 +30,4 @@ The team working on this project are:
 - [ ] Allow download of Pokédex for offline use.
 - [ ] Add non-intrusive advertisements
 - [ ] Add options to remove ads 
+- [ ] Add donation options
