@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<<<<<<< HEAD
 	<script type="text/javascript" src="/ivcal/jquery-2.1.4.min.js"></script>
+=======
+	<title>IV Calculator API</title>
+	<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+>>>>>>> 172af63... Backend update.
 </head>
 <body>
 <?php
@@ -19,6 +24,14 @@
 	echo "var properties= ". json_encode($poke_info).";";
 	echo "</script>";
 ?>
+<<<<<<< HEAD
 	<script type="text/javascript" src="/ivcal/ivcal.js"></script>
 </body>
 </html>
+=======
+	<script type="text/javascript" src="ivcal.js"></script>
+	<div id=result>
+	</div>
+</body>
+</html>
+>>>>>>> 172af63... Backend update.

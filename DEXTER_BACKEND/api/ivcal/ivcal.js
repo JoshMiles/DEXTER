@@ -2,7 +2,10 @@ console.log(properties);
 window.onload = function() {
 	processData();
 }
+<<<<<<< HEAD
 var result;
+=======
+>>>>>>> 172af63... Backend update.
 
 function processData() {
 	//window.location.href = "";
@@ -14,6 +17,7 @@ function processData() {
 	if (properties.powerup.toLowerCase() == 'yes') {
 		upgraded_bool = true;
 	}
+<<<<<<< HEAD
 	result = evaluate(properties.name, properties.cp, properties.hp, properties.dust, upgraded_bool);
 	//document.getElementById("result").innerHTML = JSON.stringify(result);
 	var url = '/?o=ivr';
@@ -23,6 +27,12 @@ function processData() {
 	$('body').append(form);
 	form.submit();
 }
+=======
+	var result = evaluate(properties.name, properties.cp, properties.hp, properties.dust, upgraded_bool);
+	document.getElementById("result").innerHTML = JSON.stringify(result);
+}
+
+>>>>>>> 172af63... Backend update.
 //pokedex
 var pokemon = [
   {
