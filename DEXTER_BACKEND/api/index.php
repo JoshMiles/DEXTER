@@ -17,8 +17,8 @@ if (isset($pn)) {
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
             $cnt     = 0;
             while ($r = mysqli_fetch_assoc($sqldata)) {
-                $rows[$cnt]['PID']  = $r['PID'];
-                $rows[$cnt]['NAME'] = $r['name'];
+                $rows["POKEMON"][$cnt]['PID']  = $r['PID'];
+                $rows["POKEMON"][$cnt]['NAME'] = $r['name'];
                 $cnt++;
             }
             break;
@@ -49,6 +49,25 @@ if (isset($pn)) {
                 $cnt++;
             }
             break;
+        case "iv":
+          $name = $_GET['name'];
+          $cp = $_GET['cp'];
+          $hp = $_GET['hp'];
+          $dust = $_GET['dust'];
+          $pu = $_GET['powerup'];
+          if(!isset($name) ||!isset($cp) || !isset($hp) || !isset($dust) || !isset($pu))
+          {
+            $rows[]['ERR'] = "UNSET VARIABLES FOR IV";
+          }else{
+            header('Location: ' ."http://api.thepokedex.me/ivcal/".$name."/".$cp."/".$hp."/".$dust."/".$pu."/");
+            die();
+          }
+          break;
+        case "ivr":
+          $results = $_POST['res'];
+          echo pretty_json($results);
+          die();
+          break;
         default:
             $rows[]['ERR'] = "OPTION VARIABLE NOT RECOGNISED";
             break;
