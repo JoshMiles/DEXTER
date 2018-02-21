@@ -1,5 +1,4 @@
 <?php
-header('Content-Type: text/plain');
 include('config.php'); // include config file
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,7 +10,7 @@ $pn        = $_GET['o'];
 $myaqldata = "";
 $rows      = array();
 
-if ($pn != null) {
+if (!isset($pn)) {
     switch ($pn) {
         case "pn":
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
@@ -21,6 +20,7 @@ if ($pn != null) {
                 $rows[$cnt]['NAME'] = $r['name'];
                 $cnt++;
             }
+            echo (json_encode($rows));
             break;
         case "total":
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
@@ -29,6 +29,7 @@ if ($pn != null) {
                 $count++;
             }
             $rows["Total"] = $count;
+            echo (json_encode($rows));
             break;
         case "pid":
             $pid     = $_GET['pid'];
@@ -36,6 +37,7 @@ if ($pn != null) {
             while ($r = mysqli_fetch_assoc($sqldata)) {
                 $rows[] = $r;
             }
+            echo (json_encode($rows));
             break;
         case "ivl":
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
@@ -48,6 +50,7 @@ if ($pn != null) {
                 $rows[$cnt]['defense'] = intval($r['defense']);
                 $cnt++;
             }
+            echo (json_encode($rows));
             break;
         case "iv":
         $doc = new DOMDocument;
@@ -57,19 +60,10 @@ if ($pn != null) {
         echo $elements;
             break;
         default:
+            $rows[]['ERR'] = "OPTION VARIABLE NOT SET";
+            echo (json_encode($rows));
             break;
     }
-} else {
-    $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
-    $cnt     = 0;
-    while ($r = mysqli_fetch_assoc($sqldata)) {
-        //echo $r['name'] .$count;
-        $rows[] = $r;
-        $cnt++;
-    }
-    echo (json_encode($rows));
-
 }
-echo (json_encode($rows));
 mysqli_close($conn);
 ?>
