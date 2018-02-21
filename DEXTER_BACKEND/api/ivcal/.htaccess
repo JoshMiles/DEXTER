@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)/([\w-]+)/?$ ivcal.php?name=$1&cp=$2&hp=$3&dust=$4&powerup=$5 [L,QSA]

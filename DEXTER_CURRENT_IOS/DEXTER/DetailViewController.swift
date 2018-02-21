@@ -1,9 +1,9 @@
 import UIKit
 import WebKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, WKNavigationDelegate {
   
-    @IBOutlet weak var webView: WKWebView!
+    var webView: WKWebView!
     
     var pokeNumber : String = "001"
     var detailPokemon: Pokemon? {
@@ -15,11 +15,11 @@ class DetailViewController: UIViewController {
     func webView(_ webView: WKWebView,
                  didFinish navigation: WKNavigation!) {
         title = webView.title
-        
+         IJProgressView.shared.hideProgressView()
     }
     override func loadView() {
         webView = WKWebView()
-        //webView.navigationDelegate =
+        webView.navigationDelegate = self
         view = webView
     }
   func configureView() {
@@ -33,8 +33,9 @@ class DetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureView()
+    IJProgressView.shared.showProgressView(webView)
     webView.scrollView.isScrollEnabled = true
-    let url = URL(string: "https://theflirtations.uk/pogo/index.php?id=" + pokeNumber)!
+    let url = URL(string: "https://pokemon.thepokedex.me/" + pokeNumber)!
     print(url);
     webView.load(URLRequest(url: url))
     webView.allowsBackForwardNavigationGestures = true
@@ -44,38 +45,9 @@ class DetailViewController: UIViewController {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
-  
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        IJProgressView.shared.showProgressView(webView)
+    }
+
 }
 
-/*
- 
- 
- import UIKit
- import WebKit
- class SecondViewController: UIViewController, WKNavigationDelegate {
- 
- var webView: WKWebView!
- 
- override func loadView() {
- webView = WKWebView()
- webView.navigationDelegate = self
- view = webView
- }
- override func viewDidLoad() {
- super.viewDidLoad()
- webView.scrollView.isScrollEnabled = false
- let url = URL(string: "https://www.pokemongomap.info")!
- webView.load(URLRequest(url: url))
- webView.allowsBackForwardNavigationGestures = true
- }
- 
- override func didReceiveMemoryWarning() {
- super.didReceiveMemoryWarning()
- // Dispose of any resources that can be recreated.
- }
- 
- 
- }
- 
-
- */
