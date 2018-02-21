@@ -561,7 +561,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 <center><img width="100%" src="https://db.pokemongohub.net/images/pokemon//normal-animated/<?php echo $pid ?>.gif" />
 <br>
 <h1>Still collecting data on this Pokemon! <br>Check back soon!</h1></center>
-<?
+<?php
 }
 $conn->close();
 
