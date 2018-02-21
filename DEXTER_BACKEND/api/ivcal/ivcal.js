@@ -2,6 +2,7 @@ console.log(properties);
 window.onload = function() {
 	processData();
 }
+var result;
 
 function processData() {
 	//window.location.href = "";
@@ -13,10 +14,15 @@ function processData() {
 	if (properties.powerup.toLowerCase() == 'yes') {
 		upgraded_bool = true;
 	}
-	var result = evaluate(properties.name, properties.cp, properties.hp, properties.dust, upgraded_bool);
-	document.getElementById("result").innerHTML = JSON.stringify(result);
+	result = evaluate(properties.name, properties.cp, properties.hp, properties.dust, upgraded_bool);
+	//document.getElementById("result").innerHTML = JSON.stringify(result);
+	var url = '/?o=ivr';
+	var form = $('<form style="display: none;" action="' + url + '" method="post">' +
+  '<textarea style="display: none;" name="res">' + (JSON.stringify(result)) + '</textarea>' +
+  '</form>');
+	$('body').append(form);
+	form.submit();
 }
-
 //pokedex
 var pokemon = [
   {
