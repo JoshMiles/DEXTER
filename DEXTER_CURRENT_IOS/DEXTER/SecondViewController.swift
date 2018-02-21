@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+
 class SecondViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView!
@@ -29,7 +30,14 @@ class SecondViewController: UIViewController, WKNavigationDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        IJProgressView.shared.showProgressView(webView)
+    }
+    
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        IJProgressView.shared.hideProgressView()
+    }
 
 }
 
