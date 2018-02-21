@@ -26,3 +26,4 @@ The team working on this project are:
 - [ ] App won't load fully unless connected to internet as app's functions are useless without an internet connection.
 - [ ] HTML encoding and decoding on the server side.
 - [x] Update iOS app to contain all Pokémon from current game
+- [ ] Add settings menu to allow download of Pokédex for offline use.
