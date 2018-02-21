@@ -20,9 +20,9 @@ The team working on this project are:
 - [ ] Add IV calculator
 - [ ] Icons next to names in Pokédex
 - [ ] Add more Pokemon data to database
-- [ ] Progress bar / loading gif on the web elements on the iOS app
+- [x] Progress bar / loading gif on the web elements on the iOS app
 - [ ] Evolution data and links within the Pokédex
-- [ ] Dynamically fill Pokédex table on app load
+- [x] Dynamically fill Pokédex table on app load
 - [ ] App won't load fully unless connected to internet as app's functions are useless without an internet connection.
 - [ ] HTML encoding and decoding on the server side.
 - [x] Update iOS app to contain all Pokémon from current game
