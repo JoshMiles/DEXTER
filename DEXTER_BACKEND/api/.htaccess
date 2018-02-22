@@ -1,4 +1,8 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
+<<<<<<< HEAD
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /index.php?/$1 [L]
+=======
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+>>>>>>> 172af63... Backend update.

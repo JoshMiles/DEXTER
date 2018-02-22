@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+header('Content-Type: text/plain');
+>>>>>>> 172af63... Backend update.
 include('config.php'); // include config file
 
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -10,7 +14,11 @@ $pn        = $_GET['o'];
 $myaqldata = "";
 $rows      = array();
 
+<<<<<<< HEAD
 if (!isset($pn)) {
+=======
+if ($pn != null) {
+>>>>>>> 172af63... Backend update.
     switch ($pn) {
         case "pn":
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
@@ -20,7 +28,10 @@ if (!isset($pn)) {
                 $rows[$cnt]['NAME'] = $r['name'];
                 $cnt++;
             }
+<<<<<<< HEAD
             echo (json_encode($rows));
+=======
+>>>>>>> 172af63... Backend update.
             break;
         case "total":
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
@@ -29,7 +40,10 @@ if (!isset($pn)) {
                 $count++;
             }
             $rows["Total"] = $count;
+<<<<<<< HEAD
             echo (json_encode($rows));
+=======
+>>>>>>> 172af63... Backend update.
             break;
         case "pid":
             $pid     = $_GET['pid'];
@@ -37,7 +51,10 @@ if (!isset($pn)) {
             while ($r = mysqli_fetch_assoc($sqldata)) {
                 $rows[] = $r;
             }
+<<<<<<< HEAD
             echo (json_encode($rows));
+=======
+>>>>>>> 172af63... Backend update.
             break;
         case "ivl":
             $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
@@ -50,7 +67,10 @@ if (!isset($pn)) {
                 $rows[$cnt]['defense'] = intval($r['defense']);
                 $cnt++;
             }
+<<<<<<< HEAD
             echo (json_encode($rows));
+=======
+>>>>>>> 172af63... Backend update.
             break;
         case "iv":
         $doc = new DOMDocument;
@@ -60,10 +80,27 @@ if (!isset($pn)) {
         echo $elements;
             break;
         default:
+<<<<<<< HEAD
             $rows[]['ERR'] = "OPTION VARIABLE NOT SET";
             echo (json_encode($rows));
             break;
     }
 }
+=======
+            break;
+    }
+} else {
+    $sqldata = mysqli_query($conn, "SELECT * FROM " . $dbtable);
+    $cnt     = 0;
+    while ($r = mysqli_fetch_assoc($sqldata)) {
+        //echo $r['name'] .$count;
+        $rows[] = $r;
+        $cnt++;
+    }
+    echo (json_encode($rows));
+
+}
+echo (json_encode($rows));
+>>>>>>> 172af63... Backend update.
 mysqli_close($conn);
 ?>
