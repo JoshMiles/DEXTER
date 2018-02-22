@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Dexter</string>
-    <string name="title_home">Test</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_pokedex">Pokédex</string>
+    <string name="title_pokestops">Pokéstops + Gyms!</string>
+    <string name="title_atlas">TSR Atlas</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
