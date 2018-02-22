@@ -19,7 +19,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pokéstops &amp; Gyms!" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Pokéstops &amp; Gyms!" image="pokestop_25" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -89,7 +89,7 @@
         <scene sceneID="lqE-5Y-sPu">
             <objects>
                 <splitViewController id="3hE-id-yPQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pokédex!" image="first" id="8El-ES-c3g"/>
+                    <tabBarItem key="tabBarItem" title="Pokédex!" image="pokeball_icon@76" id="8El-ES-c3g"/>
                     <toolbarItems/>
                     <connections>
                         <segue destination="ysC-am-gmQ" kind="relationship" relationship="masterViewController" id="ZRj-gE-fpR"/>
@@ -171,25 +171,33 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="Utv-8u-u3D">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="Zup-Gj-ac3">
-                            <rect key="frame" x="67.5" y="5.5" width="240" height="33"/>
+                            <rect key="frame" x="32" y="5.5" width="286" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inline_logo" translatesAutoresizingMaskIntoConstraints="NO" id="swY-rI-01W">
-                                    <rect key="frame" x="-46" y="-6" width="349" height="40"/>
+                                    <rect key="frame" x="-34" y="-7" width="376" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="settings_24" id="JOn-gb-7Sq">
+                            <connections>
+                                <action selector="oh:" destination="vNe-Wt-3IC" id="GLK-mC-Lbn"/>
+                                <segue destination="EUk-xV-DUV" kind="showDetail" id="yKt-Kn-038"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="mainView" destination="gua-XX-34x" id="vOm-hg-NQZ"/>
                         <outlet property="searchFooter" destination="Ort-Pt-v9j" id="EyH-6y-n0c"/>
                         <outlet property="tableView" destination="srY-v4-X8b" id="nqC-nL-Hyb"/>
                         <outlet property="view" destination="gua-XX-34x" id="9DK-pl-be9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S63-nA-4Sa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vNe-Wt-3IC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3509.5999999999999" y="-708.39580209895053"/>
         </scene>
@@ -223,16 +231,98 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="JZ7-Jd-AbP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="TSR Atlas" image="second" id="lwv-r8-ebn"/>
+                    <tabBarItem key="tabBarItem" title="TSR Atlas" image="ic_public" id="lwv-r8-ebn"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wcn-cn-ygp" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="1076.311844077961"/>
         </scene>
+        <!--Detail-->
+        <scene sceneID="6n4-Ux-IZx">
+            <objects>
+                <viewController title="Detail" id="8Tv-W5-fUy" customClass="FourthViewController" customModule="DEXTER" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nts-5T-MLL"/>
+                        <viewControllerLayoutGuide type="bottom" id="kC9-Oy-JZb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="97G-xM-ETk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8AW-EX-V8l">
+                                <rect key="frame" x="0.0" y="89" width="375" height="187"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0mE-PS-KdE">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="187"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Download full Pokédex?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-1v-Pih">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYp-jR-ePT">
+                                                <rect key="frame" x="0.0" y="31" width="375" height="80"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">You can download the complete Pokémon Go Pokédex for offline use when you're not connected to the internet! Be aware that the Pokéstop &amp; Gym map and the TSR Atlas map will NOT work if your device is not connected to the internet.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjE-p1-fQ7">
+                                                <rect key="frame" x="0.0" y="119" width="375" height="30"/>
+                                                <state key="normal" title="Delete Pokédex download data"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDb-2r-FWH">
+                                                <rect key="frame" x="0.0" y="157" width="375" height="30"/>
+                                                <state key="normal" title="Download full Pokédex"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="C0j-nS-4Gq" firstAttribute="trailing" secondItem="8AW-EX-V8l" secondAttribute="trailing" id="Fd2-cp-Kos"/>
+                            <constraint firstItem="8AW-EX-V8l" firstAttribute="leading" secondItem="C0j-nS-4Gq" secondAttribute="leading" id="UYH-in-1DY"/>
+                            <constraint firstItem="kC9-Oy-JZb" firstAttribute="top" secondItem="8AW-EX-V8l" secondAttribute="bottom" constant="342" id="nVU-U4-Cp7"/>
+                            <constraint firstItem="8AW-EX-V8l" firstAttribute="top" secondItem="Nts-5T-MLL" secondAttribute="bottom" constant="25" id="p5y-pM-A7g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="C0j-nS-4Gq"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="xKl-rD-787" userLabel="Settings"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHY-u8-ClP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5104.8000000000002" y="47.226386806596707"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8hi-Mo-hhU">
+            <objects>
+                <navigationController id="EUk-xV-DUV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="RBs-qB-yvU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.92138129469999996" green="0.92155820129999999" blue="0.92135167120000006" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="8Tv-W5-fUy" kind="relationship" relationship="rootViewController" id="J1b-8F-hLL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTI-hC-FgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4327" y="64"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="ic_public" width="24" height="24"/>
         <image name="inline_logo" width="1000" height="250"/>
-        <image name="second" width="30" height="30"/>
+        <image name="pokeball_icon@76" width="23" height="23"/>
+        <image name="pokestop_25" width="25" height="25"/>
+        <image name="settings_24" width="24" height="24"/>
     </resources>
 </document>
