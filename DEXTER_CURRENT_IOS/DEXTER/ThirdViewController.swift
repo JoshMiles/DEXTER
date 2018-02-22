@@ -25,6 +25,12 @@ class ThirdViewController: UIViewController, WKNavigationDelegate {
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
     }
+
+    @IBAction func oh(_ sender: UIBarButtonItem) {
+        print("works?")
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

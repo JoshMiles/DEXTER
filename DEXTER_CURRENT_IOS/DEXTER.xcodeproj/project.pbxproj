@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03915C31203F4F6400114865 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03915C30203F4F6400114865 /* Settings.bundle */; };
+		03915C33203F50FA00114865 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03915C32203F50FA00114865 /* SettingsBundleHelper.swift */; };
 		03C7458C203B9A27005B7DAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03C7458B203B9A27005B7DAA /* Images.xcassets */; };
 		03F40A42203D44E80034C801 /* IJProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F40A41203D44E80034C801 /* IJProgressView.swift */; };
 		03F5EC892037CC5400DC4255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F5EC882037CC5400DC4255 /* AppDelegate.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03915C30203F4F6400114865 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		03915C32203F50FA00114865 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		03C7458B203B9A27005B7DAA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		03F40A41203D44E80034C801 /* IJProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IJProgressView.swift; sourceTree = "<group>"; };
 		03F5EC852037CC5400DC4255 /* DEXTER.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DEXTER.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +126,7 @@
 		03F5EC872037CC5400DC4255 /* DEXTER */ = {
 			isa = PBXGroup;
 			children = (
+				03915C30203F4F6400114865 /* Settings.bundle */,
 				03F40A41203D44E80034C801 /* IJProgressView.swift */,
 				03F5ECDC20386FAB00DC4255 /* MasterViewController.swift */,
 				03F5ECDE20386FAC00DC4255 /* DetailViewController.swift */,
@@ -137,6 +142,7 @@
 				03F5ECD42037E95500DC4255 /* Theme.swift */,
 				03F5ECE92038BC1700DC4255 /* ThirdViewController.swift */,
 				03C7458B203B9A27005B7DAA /* Images.xcassets */,
+				03915C32203F50FA00114865 /* SettingsBundleHelper.swift */,
 			);
 			path = DEXTER;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			files = (
 				03F5EC952037CC5500DC4255 /* LaunchScreen2.storyboard in Resources */,
 				03F5EC922037CC5500DC4255 /* Assets.xcassets in Resources */,
+				03915C31203F4F6400114865 /* Settings.bundle in Resources */,
 				03C7458C203B9A27005B7DAA /* Images.xcassets in Resources */,
 				03F5EC902037CC5400DC4255 /* Main.storyboard in Resources */,
 			);
@@ -373,6 +380,7 @@
 				03F5ECD52037E95500DC4255 /* Theme.swift in Sources */,
 				03F5ECE020386FAC00DC4255 /* Pokemon.swift in Sources */,
 				03F5ECDF20386FAC00DC4255 /* MasterViewController.swift in Sources */,
+				03915C33203F50FA00114865 /* SettingsBundleHelper.swift in Sources */,
 				03F5ECD32037E91D00DC4255 /* SearchFooter.swift in Sources */,
 				03F5EC8B2037CC5400DC4255 /* FirstViewController.swift in Sources */,
 			);

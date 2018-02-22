@@ -5,7 +5,8 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
   // MARK: - Properties
   @IBOutlet var tableView: UITableView!
   @IBOutlet var searchFooter: SearchFooter!
-  var filteredPokemon = [Pokemon]()
+    @IBOutlet var mainView: UIView!
+    var filteredPokemon = [Pokemon]()
   var detailViewController: DetailViewController? = nil
   var pokemons = [Pokemon]()
    let searchController = UISearchController(searchResultsController: nil)
@@ -31,6 +32,7 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
   // MARK: - View Setup
   override func viewDidLoad() {
     super.viewDidLoad()
+    IJProgressView.shared.showProgressView(mainView)
     guard let gitUrl = URL(string: "https://api.thepokedex.me/?o=pn") else { return }
     URLSession.shared.dataTask(with: gitUrl) { (data, response
         , error) in
@@ -57,8 +59,9 @@ class MasterViewController: UIViewController, UITableViewDataSource, UITableView
       let controllers = splitViewController.viewControllers
       detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
     }
+     IJProgressView.shared.hideProgressView()
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     if splitViewController!.isCollapsed {
       if let selectionIndexPath = self.tableView.indexPathForSelectedRow {
