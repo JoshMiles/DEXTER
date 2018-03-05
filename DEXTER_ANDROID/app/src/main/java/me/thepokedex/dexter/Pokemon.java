@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,9 @@ public class Pokemon extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_pokemon, container, false);
 
+        String url = "https://pokemon.thepokedex.me/" + String.format("%03d", PID);
+        Log.i("Pokedex", url);
+
         WebView webView = (WebView) view.findViewById(R.id.WebView);
         webView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = webView.getSettings();
@@ -72,7 +76,7 @@ public class Pokemon extends Fragment {
         webSettings.setDisplayZoomControls(false);
         webSettings.setSupportZoom(true);
         webSettings.setDefaultTextEncodingName("utf-8");
-        webView.loadUrl("https://api.thepokedex.me/?o=data&pid=" + String.valueOf(PID));
+        webView.loadUrl(url);
 
         return view;
     }
