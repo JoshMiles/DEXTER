@@ -4,7 +4,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -74,14 +73,12 @@ public class Atlas extends Fragment {
 
         WebView webView = (WebView) view.findViewById(R.id.WebView);
 
-        Log.d("Web", "UA: " + webView.getSettings().getUserAgentString());
+        //Log.d("Web", "UA: " + webView.getSettings().getUserAgentString());
 
         webView.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
-                Log.d("MyApplication", consoleMessage.message() + " -- From line "
-                        + consoleMessage.lineNumber() + " of "
-                        + consoleMessage.sourceId());
+                //Log.d("MyApplication", consoleMessage.message() + " -- From line + consoleMessage.lineNumber() + " of "+ consoleMessage.sourceId());
                 return super.onConsoleMessage(consoleMessage);
             }
         });

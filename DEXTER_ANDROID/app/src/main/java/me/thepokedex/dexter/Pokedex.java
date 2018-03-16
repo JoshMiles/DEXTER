@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -164,7 +163,7 @@ public class Pokedex extends Fragment {
                 // convert inputstream to string
                 if (inputStream != null) {
                     result = convertInputStreamToString(inputStream);
-                    Log.i("App", "Data received:" + result);
+                    //Log.i("App", "Data received:" + result);
 
                 } else
                     result = "Failed to fetch data";
@@ -212,7 +211,7 @@ public class Pokedex extends Fragment {
                 }
 
                 int jsonArrLength = jsonMainNode.length();
-                Log.d("DEBUG", String.valueOf(jsonArrLength));
+                //Log.d("DEBUG", String.valueOf(jsonArrLength));
 
                 for (int i = 0; i < jsonArrLength; i++) {
                     JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
@@ -239,7 +238,7 @@ public class Pokedex extends Fragment {
                 listView.setAdapter(adapter);
 
             } catch (Exception e) {
-                Log.i("App", "Error parsing data" + e.getMessage());
+                //Log.i("App", "Error parsing data" + e.getMessage());
 
             }
         }
